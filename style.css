@@ -1431,7 +1431,8 @@ a {
 
 /* ===== FOOTER ===== */
 .footer {
-  background: #002a5c;
+  background: #f0f6ff;
+  border-top: 3px solid #004c8c;
   padding: 20px 16px;
   text-align: center;
 }
@@ -1443,9 +1444,8 @@ a {
   margin-bottom: 12px;
 }
 .footer-logo-img {
-  height: 60px;
+  height: 80px;
   width: auto;
-  filter: brightness(0) invert(1);
   margin-bottom: 4px;
 }
 .header-logo-img {
@@ -1474,13 +1474,13 @@ a {
 
 .footer-nav a {
   font-size: 0.7rem;
-  color: #aac8ee;
+  color: #004c8c;
   text-decoration: underline;
 }
 
 .footer-copy {
   font-size: 0.65rem;
-  color: #667;
+  color: #888;
 }
 
 /* ===== FIXED BOTTOM CTA ===== */
