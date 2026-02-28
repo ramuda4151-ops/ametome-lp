@@ -2480,9 +2480,17 @@ a {
 @keyframes btn-shine {
   0% {
     background-position: -200% center;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
   }
   100% {
     background-position: 200% center;
+    opacity: 0;
   }
 }
 
@@ -2497,7 +2505,7 @@ a {
 
 /* オレンジCTAボタン（メインFV直下・中盤） */
 .btn-call-orange {
-  animation: btn-pulse 2s ease-in-out infinite;
+  animation: heroPulse 2.4s ease-in-out infinite;
 }
 
 .btn-call-orange::before {
@@ -2509,9 +2517,9 @@ a {
   height: 100%;
   background: linear-gradient(
     105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.55) 50%,
-    transparent 60%
+    transparent 44%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 56%
   );
   background-size: 200% 100%;
   animation: btn-shine 2.4s ease-in-out 1;
@@ -2524,6 +2532,7 @@ a {
 .btn-call-sm {
   position: relative;
   overflow: hidden;
+  animation: heroPulse 2.6s ease-in-out infinite;
 }
 
 .btn-call-sm::before {
@@ -2535,9 +2544,9 @@ a {
   height: 100%;
   background: linear-gradient(
     105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.45) 50%,
-    transparent 60%
+    transparent 44%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 56%
   );
   background-size: 200% 100%;
   animation: btn-shine 2.6s ease-in-out 1;
@@ -2550,6 +2559,7 @@ a {
 .btn-call-final {
   position: relative;
   overflow: hidden;
+  animation: heroPulse 2.8s ease-in-out infinite;
 }
 
 .btn-call-final::before {
@@ -2561,9 +2571,9 @@ a {
   height: 100%;
   background: linear-gradient(
     105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.4) 50%,
-    transparent 60%
+    transparent 44%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 56%
   );
   background-size: 200% 100%;
   animation: btn-shine 2.8s ease-in-out 1;
@@ -2589,6 +2599,7 @@ a {
 .call-modal-call {
   position: relative;
   overflow: hidden;
+  animation: heroPulse 2.5s ease-in-out infinite;
 }
 
 .call-modal-call::before {
@@ -2600,9 +2611,9 @@ a {
   height: 100%;
   background: linear-gradient(
     105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.4) 50%,
-    transparent 60%
+    transparent 44%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 56%
   );
   background-size: 200% 100%;
   animation: btn-shine 2.5s ease-in-out 1;
