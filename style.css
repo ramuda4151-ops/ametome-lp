@@ -499,6 +499,8 @@ a {
   background: linear-gradient(135deg, #ff6b00, #ff9500);
   color: #fff;
   box-shadow: 0 4px 16px rgba(255,107,0,0.45);
+  position: relative;
+  overflow: hidden;
 }
 
 .call-line1 {
@@ -2449,4 +2451,180 @@ a {
   font-weight: 900;
   text-decoration: none;
   box-shadow: 0 3px 10px rgba(255,107,0,0.4);
+}
+
+/* ===== CTAボタン シャインアニメーション ===== */
+@keyframes btn-shine {
+  0% {
+    background-position: -200% center;
+  }
+  60%, 100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes btn-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 18px rgba(255, 120, 0, 0.5), 0 0 0 0 rgba(255, 120, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 28px rgba(255, 120, 0, 0.7), 0 0 0 8px rgba(255, 120, 0, 0);
+  }
+}
+
+/* オレンジCTAボタン（メインFV直下・中盤） */
+.btn-call-orange {
+  animation: btn-pulse 2s ease-in-out infinite;
+}
+
+.btn-call-orange::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: btn-shine 2.4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* 小サイズCTAボタン */
+.btn-call-sm {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-call-sm::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: btn-shine 2.6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* ファイナルCTAボタン */
+.btn-call-final {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-call-final::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: btn-shine 2.8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* 固定フッターCTAボタン */
+.fixed-btn-call,
+.fixed-btn-mail {
+  position: relative;
+  overflow: hidden;
+}
+
+.fixed-btn-call::before,
+.fixed-btn-mail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: btn-shine 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* ヘッダーCTAボタン */
+.header-tel {
+  position: relative;
+  overflow: hidden;
+}
+
+.header-tel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: btn-shine 3.2s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* モーダル内「無料相談」ボタン */
+.call-modal-call {
+  position: relative;
+  overflow: hidden;
+}
+
+.call-modal-call::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: btn-shine 2.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
 }
