@@ -1825,6 +1825,20 @@ a {
 }
 
 /* ===== NEW HERO ===== */
+.hero-img-only {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+  line-height: 0;
+}
+
+.hero-fv-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .hero {
   position: relative;
   width: 100%;
