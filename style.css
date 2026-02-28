@@ -385,19 +385,19 @@ a {
   background: #fff;
   border-top: 3px solid #004c8c;
   border-bottom: 3px solid #004c8c;
-  padding: 16px;
+  padding: 14px 8px;
   text-align: center;
 }
 
 .cta-band-title {
   color: #004c8c;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   line-height: 1.5;
   margin-bottom: 10px;
 }
 
 .cta-band-title strong {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: #e63000;
 }
 
