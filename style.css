@@ -2326,7 +2326,7 @@ a {
     transparent 60%
   );
   background-size: 200% 100%;
-  animation: btn-shine 2.2s ease-in-out 1;
+  animation: btn-shine 3s ease-in-out infinite;
   pointer-events: none;
   border-radius: inherit;
 }
@@ -2522,7 +2522,7 @@ a {
     transparent 56%
   );
   background-size: 200% 100%;
-  animation: btn-shine 2.4s ease-in-out 1;
+  animation: btn-shine 3s ease-in-out infinite;
   pointer-events: none;
   z-index: 1;
   border-radius: inherit;
@@ -2549,7 +2549,7 @@ a {
     transparent 56%
   );
   background-size: 200% 100%;
-  animation: btn-shine 2.6s ease-in-out 1;
+  animation: btn-shine 3s ease-in-out infinite;
   pointer-events: none;
   z-index: 1;
   border-radius: inherit;
@@ -2576,7 +2576,7 @@ a {
     transparent 56%
   );
   background-size: 200% 100%;
-  animation: btn-shine 2.8s ease-in-out 1;
+  animation: btn-shine 3s ease-in-out infinite;
   pointer-events: none;
   z-index: 1;
   border-radius: inherit;
@@ -2616,7 +2616,7 @@ a {
     transparent 56%
   );
   background-size: 200% 100%;
-  animation: btn-shine 2.5s ease-in-out 1;
+  animation: btn-shine 3s ease-in-out infinite;
   pointer-events: none;
   z-index: 1;
   border-radius: inherit;
