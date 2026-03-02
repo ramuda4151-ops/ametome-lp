@@ -25,8 +25,8 @@ function doPost(e) {
 
 /**
  * 通知メッセージを作成する
- * @param {object} data - フォームから送信されたデータ
- * @returns {string} - 通知用の整形済みテキスト
+ * ※LINEは開かないと2行しか表示されないため、重要情報を先頭に配置
+ * テンプレ順：タイトル → TEL → 選択内容 → 問い合わせ時間 → 問い合わせID → その他タグ
  */
 function createMessage(data) {
   var lpId = data.lp_id || "(IDなし)";
@@ -34,14 +34,13 @@ function createMessage(data) {
   var selected = data.selected || "(選択なし)";
   var timestamp = data.timestamp || new Date().toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" });
 
-  var message = "【アメトメ】新規お問い合わせがありました\n";
-  message += "------------------------------------\n";
-  message += "問い合わせID: " + lpId + "\n";
+  // 1行目・2行目が最重要（LINEの折りたたみ表示対策）
+  var message = "【アメトメ】リスCV\n";
   message += "TEL: " + tel + "\n";
   message += "選択した内容: " + selected + "\n";
   message += "問い合わせ時間: " + timestamp + "\n";
-  message += "------------------------------------\n";
-  message += "その他タグ:\n";
+  message += "問い合わせID: " + lpId + "\n";
+  message += "\nその他タグ:\n";
 
   if (data.params && Object.keys(data.params).length > 0) {
     for (var key in data.params) {
@@ -58,7 +57,6 @@ function createMessage(data) {
 
 /**
  * Gmailに通知を送信する
- * @param {string} messageText - 送信するメッセージ
  */
 function sendGmail(messageText) {
   var email = "ametome.official@gmail.com";
@@ -72,7 +70,6 @@ function sendGmail(messageText) {
 
 /**
  * LINEに通知を送信する
- * @param {string} messageText - 送信するメッセージ
  */
 function sendLine(messageText) {
   var channelAccessToken = "ZWODUF58G3ocE8g3NQ2hnyiI4iUkaunGosz+9V+DRK3Our5nbyQsihFLb73gZHLlxLrlkaCY3X2scFcAOFFD4rD8kr3BwDl4gB6AYSmQ500OyGCYfWD/PDAYT+x1agIYn+7IoxogdRU05mBFC6cKYAdB04t89/1O/w1cDnyilFU=";
