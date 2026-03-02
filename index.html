@@ -38,14 +38,18 @@
 
       // URLからIDとパラメータを取得する
       function getLpId() {
-        // パス末尾の /xxx 部分を取得（例: /1, /lis1）
-        var path = window.location.pathname;
-        var match = path.match(/\/([a-zA-Z0-9]+)\/?$/);
-        return match ? match[1] : '';
+        // クエリパラメータの ?id=xxx を取得（例: ?id=1, ?id=lis1）
+        var search = window.location.search;
+        if (search) {
+          var params = new URLSearchParams(search);
+          var id = params.get('id');
+          if (id) return id;
+        }
+        return '';
       }
       function getAllParams() {
         var params = {};
-        // URLクエリパラメータ（?gclid=xxx など）
+        // URLクエリパラメータ（?gclid=xxx など）をすべて取得
         var search = window.location.search;
         if (search) {
           search.substring(1).split('&').forEach(function(p) {
@@ -53,9 +57,12 @@
             if (kv[0]) params[decodeURIComponent(kv[0])] = decodeURIComponent(kv[1] || '');
           });
         }
-        // lpId もパラメータとして追加
+        // lp_id を id パラメータから設定（その他タグと重複しないよう id は除外）
         var lpId = getLpId();
-        if (lpId) params['lp_id'] = lpId;
+        if (lpId) {
+          params['lp_id'] = lpId;
+          delete params['id']; // その他タグに id が重複表示されないよう削除
+        }
         return params;
       }
 
