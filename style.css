@@ -17,7 +17,7 @@ body {
   color: #222;
   max-width: 480px;
   margin: 0 auto;
-  padding-top: 60px;
+  padding-top: 0;
   padding-bottom: 70px;
   overflow-x: hidden;
 }
@@ -27,17 +27,13 @@ a {
   color: inherit;
 }
 
-/* ===== FIXED HEADER ===== */
+/* ===== HEADER ===== */
 .fixed-header {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   width: 100%;
   max-width: 480px;
   background: #fff;
   border-bottom: 3px solid #004c8c;
-  z-index: 1000;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
