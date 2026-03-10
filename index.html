@@ -94,9 +94,11 @@
         // GASエンドポイントに送信
         var params = getAllParams();
         var gasUrl = 'https://script.google.com/macros/s/AKfycbxDRDaoy_xDl4v4_bYH3mhDGW6qh0iqcvrIvxtK2GXDJiKAFluW1lR8rySm_0wHvDYA/exec';
+        var note = document.getElementById('form-note') ? document.getElementById('form-note').value.trim() : '';
         var payload = {
           tel: tel,
           selected: selectedText,
+          note: note,
           lp_id: params['lp_id'] || '',
           params: params,
           timestamp: new Date().toLocaleString('ja-JP', {timeZone: 'Asia/Tokyo'})
@@ -222,8 +224,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="form-step-label">② お電話番号を入力してください</p>
     <input type="tel" id="form-tel" class="form-tel-input" placeholder="お電話番号（例：09012345678）" inputmode="numeric">
     <p id="form-tel-error" class="form-tel-error" style="display:none">⚠️ 電話番号を正しく入力してください</p>
-    <button class="form-submit-btn" id="form-submit-btn" onclick="submitForm(event)">申し込む</button>
-    <p class="form-disclaimer">※利用規約・プライバシーポリシーに同意の上、ご利用ください。<br>※弊社から見積りに関しご連絡させていただく場合がございます。</p>
+    <p class="form-step-label">③ その他<br><span class="form-step-sub">何かあればお書きください</span></p>
+    <textarea id="form-note" class="form-note-input" placeholder="例：2階の天井から雨漏りしています。週末に来てほしいです。" rows="3"></textarea>
+    <button class="form-submit-btn" id="form-submit-btn" onclick="submitForm(event)">相談する</button>
+    <p class="form-disclaimer">※利用規約・プライバシーポリシーに同意の上、ご利用ください。</p>
   </div>
 </section>
 

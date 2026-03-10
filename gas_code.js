@@ -1,22 +1,17 @@
 /**
- * LPからのフォーム送信を受け取り、GmailとLINEに通知する
+ * LPからのフォーム送信を受け取り、GmailとLINEグループに通知する
  */
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
-
     // 1. メッセージ本文を作成
     var messageText = createMessage(data);
-
     // 2. Gmailへの通知送信
     sendGmail(messageText);
-
     // 3. LINE Messaging APIへの通知送信
     sendLine(messageText);
-
     // 4. 成功レスポンスを返す
     return ContentService.createTextOutput(JSON.stringify({ status: "success" })).setMimeType(ContentService.MimeType.JSON);
-
   } catch (error) {
     console.log("エラー発生: " + error.toString());
     return ContentService.createTextOutput(JSON.stringify({ status: "error", message: error.toString() })).setMimeType(ContentService.MimeType.JSON);
@@ -26,18 +21,22 @@ function doPost(e) {
 /**
  * 通知メッセージを作成する
  * ※LINEは開かないと2行しか表示されないため、重要情報を先頭に配置
- * テンプレ順：タイトル → TEL → 選択内容 → 問い合わせ時間 → 問い合わせID → その他タグ
+ * テンプレ順：タイトル → TEL → 選択内容 → その他メモ → 問い合わせ時間 → 問い合わせID → その他タグ
  */
 function createMessage(data) {
   var lpId = data.lp_id || "(IDなし)";
   var tel = data.tel || "(電話番号なし)";
   var selected = data.selected || "(選択なし)";
+  var note = data.note || "";
   var timestamp = data.timestamp || new Date().toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" });
 
   // 1行目・2行目が最重要（LINEの折りたたみ表示対策）
   var message = "【アメトメ】リスCV\n";
   message += "TEL: " + tel + "\n";
   message += "選択した内容: " + selected + "\n";
+  if (note) {
+    message += "その他メモ: " + note + "\n";
+  }
   message += "問い合わせ時間: " + timestamp + "\n";
   message += "問い合わせID: " + lpId + "\n";
   message += "\nその他タグ:\n";
@@ -69,11 +68,11 @@ function sendGmail(messageText) {
 }
 
 /**
- * LINEに通知を送信する
+ * LINEグループに通知を送信する
  */
 function sendLine(messageText) {
   var channelAccessToken = "ZWODUF58G3ocE8g3NQ2hnyiI4iUkaunGosz+9V+DRK3Our5nbyQsihFLb73gZHLlxLrlkaCY3X2scFcAOFFD4rD8kr3BwDl4gB6AYSmQ500OyGCYfWD/PDAYT+x1agIYn+7IoxogdRU05mBFC6cKYAdB04t89/1O/w1cDnyilFU=";
-  var userId = "Ued8b57cfa67ac9c5726e6051538d6d74";
+  var groupId = "Cce12474663e3936457a0270c4d82926e";
   var url = "https://api.line.me/v2/bot/message/push";
 
   var headers = {
@@ -82,7 +81,7 @@ function sendLine(messageText) {
   };
 
   var payload = {
-    "to": userId,
+    "to": groupId,
     "messages": [
       {
         "type": "text",

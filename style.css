@@ -2631,6 +2631,29 @@ a {
 }
 
 /* ===== フォームエラーメッセージ ===== */
+.form-step-sub {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #555;
+}
+
+.form-note-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.form-note-input:focus {
+  outline: none;
+  border-color: #004c8c;
+}
+
 .form-tel-error {
   color: #e00;
   font-size: 0.82rem;
